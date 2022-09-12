@@ -8,10 +8,7 @@ public class nestedFor {
 		n=sc.nextInt();
 		for(i=n;i>=1;i--)
 		{
-			for(s=1;s<=n;s++)
-			{
-				System.out.print(" ");
-			}
+			
 			for(j=1;j<=i;j++)
 			{
 				System.out.print("* ");
