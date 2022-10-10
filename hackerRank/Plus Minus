@@ -1,0 +1,39 @@
+import java.util.*;
+public class array
+{
+    public static void main(String[] args)
+    {    double b=0,c=0,d=0;
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] a=new int[n];
+        double count=0,cnt=0,ct=0;
+        for(int i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]>0)
+            
+                count++;
+            
+            else if(a[i]<0)
+            
+              cnt++;  
+            
+            else
+            
+                ct++;
+            
+        }
+        
+        b=count/n;
+        c=cnt/n;
+        d=ct/n;
+        System.out.println( String.format("%.6f",b)); 
+         System.out.println(String.format("%.6f",c)); 
+         System.out.println(String.format("%.6f",d));    
+            
+            
+            }
+}
