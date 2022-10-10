@@ -1,0 +1,40 @@
+import java.util.*;
+public class minMaxSum
+{
+    public static void main(String[] args)
+    {   
+        int n=5;
+        Scanner sc=new Scanner(System.in);
+        long[] a=new long[n];
+        long sum=0,min=0,max=0;
+        for(int i=0;i<n;i++)
+        {
+            a[i]=sc.nextInt();
+        }
+        long large =a[0];
+        for(int i=1;i<n;i++)
+        {
+            if(a[i]>large)
+            {
+                large=a[i];
+            }
+        }
+        long small=a[0];
+        for(int i=1;i<n;i++)
+        {
+            if(a[i]<small)
+            {
+                small=a[i];
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+          sum+=a[i];
+        }
+        min=sum-large;
+        max=sum-small;
+          System.out.println(Math.abs(min)+" "+max);  
+    }
+}
+
+
