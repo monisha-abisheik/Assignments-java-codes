@@ -1,0 +1,46 @@
+package admin;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+
+public class AddTrain {
+	
+	public void join() {
+        Scanner input=new Scanner(System.in);
+		System.out.println("Enter Train Name : ");
+		String trainname = input.next();
+		System.out.println("Enter Train From : ");
+		String trainfrom = input.next();
+		// sc.next();
+		System.out.println("Enter Train  To : ");
+		String trainto = input.next();
+		System.out.println("Enter Ticket  Nos: ");
+		int ticketno = input.nextInt();
+		System.out.println("Enter Ticket Rate in Rs₹ : ");
+		int ticketrate = input.nextInt();
+		System.out.println("Added Successfully");
+
+		PreparedStatement getQuery = null;
+		try {
+			Connection jdbc=TrainDataBase.getInstance();
+
+			getQuery = jdbc.prepareStatement("insert into train values(?,?,?,?,?,?)");
+			TrainDetails train = new TrainDetails();
+			getQuery.setInt(1, train.getTrainNo());
+			getQuery.setString(2, trainname);
+			getQuery.setString(3, trainfrom);
+			getQuery.setString(4, trainto);
+			getQuery.setInt(5, ticketno);
+			getQuery.setInt(6, ticketrate);
+			getQuery.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+}
