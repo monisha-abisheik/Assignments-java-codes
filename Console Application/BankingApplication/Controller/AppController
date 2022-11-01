@@ -1,0 +1,42 @@
+package controller;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import view.ChoiceView;
+
+public class AppController {
+	public static String bankName = "ABC Bank";
+
+	public void authentication() throws SQLException, ClassNotFoundException {
+		Scanner input = new Scanner(System.in);
+		UserController user = new UserController();
+		ChoiceView option = new ChoiceView();
+
+		System.out.println("1.Login\n2.Enroll");
+		int choice = input.nextInt();
+		switch (choice) {
+		case 1:
+			user.login();
+			option.choice();
+			break;
+		case 2:
+			user.enroll();
+			option.choice();
+			break;
+
+		}
+
+	}
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		ChoiceView vote = new ChoiceView();
+
+		System.out.println("*******************************");
+		System.out.println("      Welcome to " + bankName);
+		System.out.println("*******************************");
+		vote.choice();
+
+	}
+
+}
