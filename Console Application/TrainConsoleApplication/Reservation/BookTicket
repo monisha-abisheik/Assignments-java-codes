@@ -1,0 +1,85 @@
+package reservation;
+
+import java.sql.Connection;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+import admin.TrainDataBase;
+import admin.TrainList;
+
+
+public class BookTicket {
+	
+	Scanner input = new Scanner(System.in);
+
+	public void book() {
+		
+		TrainList list=new TrainList();
+		
+		list.viewTrainList();
+		System.out.println("Enter the Train No");
+		int train_no = input.nextInt();
+		System.out.println("Enter no.of tickets:");
+		int noOfTickets = input.nextInt();
+		try {
+			Connection jdbc=TrainDataBase.getInstance();
+
+			PreparedStatement ps1 =  jdbc.prepareStatement(
+					"update train set ticket_count =ticket_count-" + noOfTickets + " where trainno=?");
+			ps1.setInt(1, train_no);
+			int queryExecution = ps1.executeUpdate();
+			PreparedStatement ps2 = jdbc
+					.prepareStatement("select ticket_cost,train_name from train where trainno=?");
+			ps2.setInt(1, train_no);
+			ResultSet rs = ps2.executeQuery();
+			while(rs.next()) {
+			int amt = rs.getInt(1);
+			String s = rs.getString(2);
+			int total_amount = amt * noOfTickets;
+			System.out.println("booked successfully");
+			System.out.println("Train No = " + train_no + "Train Name = " + s + "Total Amount  = " + total_amount);
+
+		} }catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		
+
+	}
+	
+	public void book(int num) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Enter no.of tickets:");
+		int noOfTickets = input.nextInt();
+		try {
+			Connection jdbc=TrainDataBase.getInstance();
+
+			PreparedStatement ps1 = jdbc.prepareStatement(
+					"update train set ticket_count =ticket_count-" + noOfTickets + " where trainno=?");
+			ps1.setInt(1, num);
+			int queryExecution = ps1.executeUpdate();
+			PreparedStatement ps2 = jdbc
+					.prepareStatement("select ticket_cost,train_name from train where trainno=?");
+			ps2.setInt(1, num);
+			ResultSet rs = ps2.executeQuery();
+			rs.next();
+			int amt = rs.getInt(1);
+			String s = rs.getString(2);
+			int total_amount = amt * noOfTickets;
+			System.out.println("booked successfully");
+			System.out.println("Train No = " + num + "Train Name = " + s + "Total Amount  = " + total_amount
+
+			);
+
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+
+
