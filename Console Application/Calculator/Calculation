@@ -1,0 +1,94 @@
+package consoleapplication;
+
+import static java.lang.Math.sqrt;
+import static java.lang.Math.cbrt;
+import static java.lang.Math.log10;
+import java.util.Scanner;
+
+public class Calculation
+
+{
+	Scanner sc=new Scanner(System.in);
+	public void addition() {
+
+		
+		System.out.println("Enter Number 1: ");
+		int input1 = sc.nextInt();
+		System.out.println("Enter Number 2: ");
+		int input2 = sc.nextInt();
+		System.out.println("addition is: " + (input1 + input2));
+	}
+
+	public void subraction() {
+
+		System.out.println("Enter Number 1: ");
+		int input1 = sc.nextInt();
+		System.out.println("Enter Number 2: ");
+		int input2 = sc.nextInt();
+		System.out.println("Subraction is: " + (input1 - input2));
+
+	}
+
+	public void multiplication() {
+		System.out.println("Enter Number 1: ");
+		int input1 = sc.nextInt();
+		System.out.println("Enter Number 2: ");
+		int input2 = sc.nextInt();
+		System.out.println("Multiplication is: " + (input1 * input2));
+	}
+
+	public void division() {
+		System.out.println("Enter Dividend: ");
+		double input1 = sc.nextDouble();
+		System.out.println("Enter Divisor: ");
+		double input2 = sc.nextDouble();
+		System.out.println(" Quotient is: " + (input1 / input2));
+		System.out.println(" Remainder is: " + (input1 % input2));
+	}
+
+	public void squareRoot() {
+		System.out.println("Enter Number: ");
+		Double input1 = sc.nextDouble();
+		System.out.println("Square root is: " + (sqrt(input1)));
+	}
+
+	public void log() {
+		System.out.println("Enter Number: ");
+		Double input1 = sc.nextDouble();
+		System.out.println("log 10 is: " + (log10(input1)));
+	}
+
+	public void tan() {
+		System.out.println("Enter Number: ");
+		Double input1 = sc.nextDouble();
+		System.out.println("Tan  is: " + (Math.tan(input1)));
+	}
+
+	public void sin() {
+		System.out.println("Enter Number: ");
+		Double input1 = sc.nextDouble();
+		System.out.println("Sin  is: " + (Math.sin(input1)));
+	}
+
+	public void cos() {
+		System.out.println("Enter Number: ");
+		Double input1 = sc.nextDouble();
+		System.out.println("Cos is: " + (Math.cos(input1)));
+	}
+
+	public void CubeRoot() {
+		System.out.println("Enter Number: ");
+		Double input1 = sc.nextDouble();
+		System.out.println("Cube Root is: " + (cbrt(input1)));
+	}
+
+	public void factorial() {
+		System.out.println("Enter Number: ");
+		int input1 = sc.nextInt(), fact = 1;
+		for (int i = 1; i <= input1; i++) {
+			fact = fact * i;
+		}
+		System.out.println("factorial is: " + fact);
+	}
+
+}
