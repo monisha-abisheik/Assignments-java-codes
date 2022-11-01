@@ -1,0 +1,19 @@
+package user;
+
+import view.Choice;
+
+public class AppContorller {
+	
+
+		public static void main(String[] args)  {
+			System.out.println("Welcome to Southern Railway Reservation System");
+			Choice choice=new Choice();
+			choice.function();
+
+		}
+
+	}
+
+
+
+
