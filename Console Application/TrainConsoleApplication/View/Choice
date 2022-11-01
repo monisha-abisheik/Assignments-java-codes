@@ -1,0 +1,63 @@
+package view;
+
+import java.util.Scanner;
+
+import admin.AdminLogin;
+import user.UserEntry;
+
+public class Choice {
+	
+
+	public void function() {
+
+		boolean checkCondition = true;
+		while (checkCondition) {
+			int userinput = 0;
+			boolean optionFails = false;
+			Scanner input = new Scanner(System.in);
+            UserEntry user=new UserEntry();
+            
+            AdminLogin admin=new AdminLogin();
+			do {
+
+				System.out.println("1.Signup\n2.Login\n3.Admin Login\n4.Exit");
+				System.out.println("Enter choice:");
+				try {
+					userinput = input.nextInt();
+					if (userinput > 4)
+						throw new Exception();
+					else
+						optionFails = true;
+				}
+
+				catch (Exception e) {
+					System.out.println("please enter the correct choice");
+
+					optionFails = false;
+
+				}
+
+			} while (optionFails == false);
+
+			switch (userinput) {
+			case 1:
+
+				user.signUp();
+				break;
+
+			case 2:
+				user.login();
+				break;
+
+			case 3:
+				admin.login();
+				break;
+			case 4:
+				checkCondition = false;
+				break;
+
+			}
+
+		}
+	}
+}
