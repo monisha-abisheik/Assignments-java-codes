@@ -7,7 +7,7 @@ public class Sequence {
       public static void sequenceOfString() {
 				int start = 0, position = 0, i = 0;
 				List<Integer> l = new ArrayList<>();
-				String s = "I";
+				String s = "IIDDIDID";
 				if (s.charAt(0) == 'I') {
 					l.add(1);
 					l.add(2);
