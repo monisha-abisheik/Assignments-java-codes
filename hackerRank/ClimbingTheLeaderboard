@@ -1,0 +1,27 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+ public class ClimbingTheLeaderboard {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int ranked = input.nextInt();
+        Stack<Integer> scores = new Stack<>();
+        scores.push(input.nextInt());
+        for (int i = 1; i < ranked; i++) {
+            int current = input.nextInt();
+            if (!scores.peek().equals(current)) scores.push(current);
+        }
+        int player = input.nextInt();
+        for (int i = 0; i < player; i++) {
+            int current = input.nextInt();
+            while (scores.size() > 0 && current > scores.peek()) scores.pop();
+            System.out.println(scores.size() +(scores.size() > 0 && scores.peek().equals(current) ? 0 : 1));
+        }
+    }
+}
