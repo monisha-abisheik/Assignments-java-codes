@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class DesignerPDFViewer {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n=26;
+        int h[] = new int[n];
+        for(int i=0; i < n; i++){
+            h[i] = input.nextInt();
+        }
+        String word = input.next();
+        char c[] =word.toCharArray();
+        int maximum=0;
+        int l=c.length;
+        for(int i=0;i<l;i++){
+            int t=h[c[i]-97];
+            if(t>maximum){
+                maximum=t;
+            }
+        }
+        System.out.println(maximum*l);
+    }
+}
