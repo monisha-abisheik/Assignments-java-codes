@@ -1,0 +1,34 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+ class FindDigits
+{
+    public static void main(String args[])
+    {
+        Scanner input=new Scanner(System.in);
+        int t,ans,d;
+        long n,m;
+        t=input.nextInt();
+        while(t-->0)
+        {
+            ans=0;
+            n=input.nextLong();
+            m=n;
+            while(m!=0)
+            {
+                d=(int)m%10;
+                m=m/10;
+                if(d==0)
+                continue;
+                if(n%d==0)
+                ans++;
+            }
+            System.out.println(ans);
+        }
+    }
+}
