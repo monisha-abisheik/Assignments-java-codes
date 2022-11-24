@@ -1,0 +1,24 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class TheHurdleRace {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int hurdle_height = input.nextInt();
+        int character_height = input.nextInt();
+        int[] height = new int[hurdle_height];
+        int maximum = 0;
+        for(int i=0; i < hurdle_height; i++){
+            height[i] = input.nextInt();
+            maximum = Math.max(maximum, height[i]);
+        }
+        System.out.println(Math.max(0, maximum - character_height));
+       
+    }
+}
