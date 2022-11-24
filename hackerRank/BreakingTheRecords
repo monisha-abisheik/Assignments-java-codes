@@ -1,0 +1,32 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+    import java.util.Scanner;
+
+public class BreakingTheRecords{
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++)
+            a[i] = input.nextInt();
+        int minimum = a[0];
+        int maximum = a[0];
+        int result1 = 0, result2 =0;
+        for (int i = 1; i < n; i++) {
+            if (a[i] > maximum) {
+                result1++;
+                maximum = a[i];
+            }
+            if (a[i] < minimum) {
+                result2++;
+                minimum = a[i];
+            }
+        }
+        System.out.println(result1 + " "+ result2);
+    }
+}
