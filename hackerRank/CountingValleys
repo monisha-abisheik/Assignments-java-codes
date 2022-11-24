@@ -1,0 +1,30 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class CountingValleys {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        input.nextInt();
+        String steps = input.next();
+        
+        int level = 0;
+        int valleys = 0;
+        for(int i = 0; i < steps.length(); i++){
+            if(steps.charAt(i) == 'U'){
+                level++;
+            }else if(steps.charAt(i) == 'D'){
+                if(level == 0){
+                    valleys++;
+                }
+                level--;
+            }
+        }
+        System.out.println(valleys);
+    }
+}
