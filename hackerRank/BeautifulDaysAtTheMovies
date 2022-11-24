@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class BeautifulDaysAtTheMovies {
+
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int starting_day=input.nextInt();
+        int ending_day=input.nextInt();
+        int divisor=input.nextInt();
+        int beautiful_days=0;
+        for(int x=starting_day;x<= ending_day;x++){
+            if(Math.abs(x-rev(x))%divisor==0)
+                beautiful_days++;
+        }
+        System.out.println(beautiful_days);
+    }
+    
+    public static int rev(int x){
+        int r=0;
+        while(x!=0){
+            r=r*10+x%10;
+            x/=10;
+        }
+        return r;
+    }
+}
