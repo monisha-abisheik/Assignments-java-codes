@@ -1,0 +1,62 @@
+import java.util.*;
+public class DayOfTheProgrammer {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int day_Of_Programmer=256,n=0,date=0;
+        int[] days={31,28,31,30,31,30,31,31};
+        int year=s.nextInt();
+        if(year>=1700 && year<=1917)
+        {
+            if(year%4!=0)
+            {
+                for(int i=0;i<days.length;i++)
+                {
+                    n+=days[i];  
+                }
+            }else
+            {
+               for(int i=0;i<days.length;i++)
+                {
+                    days[1]=29;
+                    n+=days[i];  
+                } 
+            }
+        }
+        else if(year==1918){
+            for(int i=0;i<days.length;i++)
+                {
+                    days[1]=29;
+                    n+=days[i];  
+                }
+                
+            n=n-14;
+        }
+        
+        else  {
+             if(year%4!=0 && year%400!=0 )
+            {
+                for(int i=0;i<days.length;i++)
+                {
+                    n+=days[i];  
+                }
+            }
+            else if(year%100==0 && year%400!=0)
+            {
+               for(int i=0;i<days.length;i++)
+                {
+                    n+=days[i];  
+                } 
+            }
+            else
+            {
+               for(int i=0;i<days.length;i++)
+                {
+                    days[1]=29;
+                    n+=days[i];  
+                } 
+            }
+        }
+        date=day_Of_Programmer-n;
+        System.out.println(date+"."+"09"+"."+year);
+    }
+}
