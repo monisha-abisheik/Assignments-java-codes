@@ -1,0 +1,26 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class MigratoryBirds {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int[] birds = new int[n];
+        for (int i = 0; i < n; i++) birds[input.nextInt()-1]++;
+        int maximum = 0;
+        int id = 0;
+        for (int i = 0; i < 5; i++) {
+            if (birds[i] > maximum) {
+                maximum = birds[i];
+                id = i+1;
+            }
+        }
+        System.out.println(id);
+    }
+}
