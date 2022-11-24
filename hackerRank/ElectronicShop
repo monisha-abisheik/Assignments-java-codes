@@ -1,0 +1,35 @@
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.util.*;
+import java.util.regex.*;
+
+public class ElectronicShop {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int budget = input.nextInt();
+        int keyboard = input.nextInt();
+        int drives = input.nextInt();
+        int[] keyboards = new int[keyboard];
+        for(int i=0; i < keyboard; i++){
+            keyboards[i] = input.nextInt();
+        }
+        int[] pendrives = new int[drives];
+        for(int i=0; i < drives; i++){
+            pendrives[i] = input.nextInt();
+        }
+        int max=0;
+        for(int i=0;i<keyboard;i++){
+            for(int j=0;j<drives;j++){
+                if(keyboards[i]+pendrives[j]<=budget){
+                  if(max<keyboards[i]+pendrives[j]){
+                      max=keyboards[i]+pendrives[j];
+                  }  
+                }
+            }
+        }
+        System.out.println(max==0?-1:max);
+        
+    }
+}
