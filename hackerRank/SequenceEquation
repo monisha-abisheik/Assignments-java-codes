@@ -1,0 +1,38 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class SequenceEquation {
+    public static void main(String args[] ) throws Exception {
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int arr[]=new int[n];
+        for(int i = 0 ;i<n;i++)
+            arr[i]=input.nextInt();
+        for(int i = 0 ;i<n;i++)
+            {
+            int position = 0;
+            for(int j = 0 ; j<n;j++)
+                {
+                if(arr[j]==i+1)
+                {
+                position = j+1 ;
+                    break;
+                }
+              }
+            int position1=0;
+            for(int j = 0 ; j<n;j++)
+                {
+                if(arr[j]==position)
+                {
+                position1 = j ;break;
+            }
+            }
+            System.out.println(position1+1);
+        }
+    }
+}
