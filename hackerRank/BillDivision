@@ -1,0 +1,27 @@
+import java.util.*;
+
+
+public class BillDivision {
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        int sum=0;
+        int n=s.nextInt();
+        int k=s.nextInt();
+        int[] a=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            a[i]=s.nextInt();
+        }
+        int b=s.nextInt();
+    for(int i=0;i<n;i++)
+        {
+           if(k!=i )
+            sum+=a[i];
+        }
+    sum=sum/2;
+    if(sum<b)
+   System.out.println(b-sum);
+  else if(sum==b)
+  System.out.println("Bon Appetit");
+    }
+}
