@@ -1,0 +1,29 @@
+import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class AppendAndDelete {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String initial = in.next();
+        String desired = in.next();
+        int exact_num = in.nextInt();
+        int toDelete = 0;
+        int i = 0;
+        while (i < initial.length() && i < desired.length() && initial.charAt(i) == desired.charAt(i)) {
+            i++;
+        }
+        toDelete = initial.length() - i;
+        int ops = toDelete + (desired.length() - i);
+        if (ops <= exact_num && ((exact_num - ops) % 2 == 0 || (exact_num - ops) > 2 * i)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+}
