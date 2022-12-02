@@ -1,4 +1,4 @@
-package day10;
+
 //InputHouse No : 123@ CBE
 //EBC32 1o : Nes@ uoH
 import java.util.Scanner;
