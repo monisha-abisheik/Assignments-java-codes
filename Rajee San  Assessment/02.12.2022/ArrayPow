@@ -1,0 +1,44 @@
+/*Input : arr = [ 1, 2, 3, 4, 5 ] 
+ pow = 3 
+ Output : [ 1, 8, 27, 64, 125 ]*/ 
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayPow {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int size = input.nextInt();
+		int[] array = new int[size];
+
+		for (int i = 0; i < size; i++) {
+			array[i] = input.nextInt();
+		}
+		int pow = input.nextInt();
+		for (int i = 0; i < size; i++) {
+
+			int p = pow, power = 1;
+			while (p != 0) {
+				power *= array[i];
+				p--;
+			}
+			array[i] = power;
+
+		}
+		for (int i = 0; i < size - 1; i++) {
+			for (int j = i + 1; j < size; j++) {
+
+				if (array[i] > array[j]) {
+					int temp = array[i];
+					array[i] = array[j];
+					array[j] = temp;
+				}
+			}
+		}
+		for (int i = 0; i < size; i++) {
+			System.out.print(array[i] + " ");
+		}
+	}
+
+}
